@@ -1,5 +1,7 @@
 import json
 import requests
+import pandas
+
 
 class easy_API :
 
@@ -36,13 +38,16 @@ class easy_API :
             print("Error: status code:", status_code)
             exit(-1)
         json_data = json.loads(content)
+
+        items = json_data['artists']['items']
+        for item in items:
+            artist_id = item['id']
         
-        return json_data
-
-
+        return artist_id
 
 
 test123 = easy_API()
+
 
 print(test123.get_artist_id("Michael Ortega"))
 
