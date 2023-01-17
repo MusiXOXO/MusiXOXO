@@ -1,6 +1,6 @@
 import json
 import requests
-import pandas
+
 
 
 class easy_API :
@@ -46,11 +46,75 @@ class easy_API :
         return artist_id
 
 
+    def get_track_id(self, name_of_track) :
+        
+        url = f"https://api.spotify.com/v1/search?q={name_of_track}&type=track&limit=1"
+        headers = {
+            "Accept"        : "application/json",
+            "Content-Type"  : "application/json",
+        }
+
+        headers['Authorization'] = f"Bearer {self.get_auth_key()}"
+        myreq = requests.get(url, headers=headers)
+        content = myreq.content
+        status_code = myreq.status_code 
+        if status_code != 200:
+            print("Error: status code:", status_code)
+            exit(-1)
+        json_data = json.loads(content)
+
+        items = json_data['tracks']['items']
+        for item in items:
+            artist_id = item['id']
+        
+        return artist_id
+
+    def get_recomendation(self, artist_id = None , song_id = None, limit=10) :
+        url = f"https://api.spotify.com/v1/recommendations?limit={limit}"
+        
+        if artist_id != None:
+            url +=f"&seed_artists={artist_id}"
+
+        if song_id != None:
+            url +=f"&seed_tracks={song_id}"
+
+        headers = {
+            "Accept"        : "application/json",
+            "Content-Type"  : "application/json",
+        }
+        headers['Authorization'] = f"Bearer {self.get_auth_key()}"
+
+        myreq = requests.get(url, headers=headers)
+        content = myreq.content
+
+        json_data = json.loads(content)
+        
+        recomendation_list = []
+
+        for i in json_data['tracks']:
+            
+            data = {
+                "song_name":{i['name']},
+                "artist":{i['artists'][0]['name']},
+                "link":{i['external_urls']['spotify']}
+            }
+
+            recomendation_list.append(data)  
+
+        return recomendation_list
+
+
+
 test123 = easy_API()
 
+print(test123.get_track_id("Habemus papam"))
 
-print(test123.get_artist_id("Michael Ortega"))
+to_print = test123.get_recomendation( test123.get_artist_id("Michael Ortega"), None ,3 )
 
 
-
+print("===============================================================================")
+for i in to_print :
+    print(f"song name:{i['song_name']} by {i['artist']}")
+    print(f"and here's the link: {i['link']}")
+    print("===============================================================================")
     
