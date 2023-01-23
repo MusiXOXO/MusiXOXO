@@ -10,17 +10,18 @@ class easy_API :
             return read_file.read()
 
     def get_artist_song(self, user_string ):
-        __artist_song = ['','']  #first goes artist then song name
+        artist_song = ['','']  #first goes artist then song name
         
-        #find if its artist - song or just song || also remove any spaces from front and back 
+        #find if its artist - song or just artist || also remove any spaces from front and back 
         if "-" in user_string:
-            __artist_song[0] = user_string[0: user_string.index('-') : 1].strip()
-            __artist_song[1] = user_string[user_string.index('-')+1 :  len(user_string)+1 : 1].strip()
+            artist_song[0] = user_string[0: user_string.index('-') : 1].strip()
+            artist_song[1] = user_string[user_string.index('-')+1 :  len(user_string)+1 : 1].strip()
         else:
-            __artist_song[1]=user_string
+            artist_song[0]=user_string
 
         #Get rid of needless 'spaces'
-        __artist_song[0].strip()
+        artist_song[0].strip()
+        return artist_song[0]
 
     def get_artist_id(self, name_of_artist) :
         
@@ -102,19 +103,4 @@ class easy_API :
             recomendation_list.append(data)  
 
         return recomendation_list
-
-
-
-test123 = easy_API()
-
-print(test123.get_track_id("Habemus papam"))
-
-to_print = test123.get_recomendation( test123.get_artist_id("Michael Ortega"), None ,3 )
-
-
-print("===============================================================================")
-for i in to_print :
-    print(f"song name:{i['song_name']} by {i['artist']}")
-    print(f"and here's the link: {i['link']}")
-    print("===============================================================================")
-    
+  
