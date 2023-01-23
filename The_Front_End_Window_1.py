@@ -31,7 +31,9 @@ class Ui_MusiXOXO(object):
         for i in to_print :
             save_file.write(f"{i['song_name']} ")
             save_file.write(f"{i['artist'] } ")
-            save_file.write(f"{i['link'] } \n")                 
+            save_file.write(f"{i['link'] } \n")
+        save_file.close()
+        self.openWindow()                 
         
     def setupUi(self, MusiXOXO):
         MusiXOXO.setObjectName("MusiXOXO")
