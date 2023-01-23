@@ -1,0 +1,3 @@
+-= Ważne info =-
+Plik z naszym kluczem, nie trackujcie go,
+Zmiana treści tego pliku tylko poza githubem.
