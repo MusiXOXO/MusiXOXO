@@ -24,8 +24,6 @@ class Ui_MusiXOXO(object):
         textboxValue = str(self.textEdit.toPlainText())
         print(textboxValue)
         backend_api = EasyspotifyAPI.easy_API()
-        # print(backend_api.get_artist_song(textboxValue))
-        # backend_api.get_artist_id()
         to_print = backend_api.get_recomendation( backend_api.get_artist_id(backend_api.get_artist_song(textboxValue)), None ,10 )
         save_file = open("Savefile.txt", "w")
         for i in to_print :
