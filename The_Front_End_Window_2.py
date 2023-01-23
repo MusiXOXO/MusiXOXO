@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_SecondWindow(object):
     def setupUi(self, SecondWindow):
         SecondWindow.setObjectName("SecondWindow")
-        SecondWindow.resize(843, 600)
+        SecondWindow.setFixedSize(850, 600)
         SecondWindow.setStyleSheet("QMainWindow {background-image: url(app_background)}")
         self.centralwidget = QtWidgets.QWidget(SecondWindow)
         self.centralwidget.setObjectName("centralwidget")
