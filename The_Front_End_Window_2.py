@@ -15,7 +15,7 @@ class Ui_SecondWindow(object):
     def setupUi(self, SecondWindow):
         SecondWindow.setObjectName("SecondWindow")
         SecondWindow.resize(843, 600)
-        SecondWindow.setStyleSheet("QMainWindow {background-image: url(C:/Users/Krzysiek/Desktop/Python Front End/app_background)}")
+        SecondWindow.setStyleSheet("QMainWindow {background-image: url(app_background)}")
         self.centralwidget = QtWidgets.QWidget(SecondWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.Lista = QtWidgets.QLabel(self.centralwidget)
