@@ -21,7 +21,7 @@ class Ui_SecondWindow(object):
         self.Lista = QtWidgets.QLabel(self.centralwidget)
         self.Lista.setGeometry(QtCore.QRect(180, 30, 541, 421))
         font = QtGui.QFont()
-        font.setPointSize(24)
+        font.setPointSize(12)
         self.Lista.setFont(font)
         self.Lista.setAcceptDrops(False)
         self.Lista.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -34,6 +34,8 @@ class Ui_SecondWindow(object):
         self.Lista.setFrameShadow(QtWidgets.QFrame.Plain)
         self.Lista.setAlignment(QtCore.Qt.AlignCenter)
         self.Lista.setObjectName("Lista")
+        self.Lista.setWordWrap(True)
+        
         SecondWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(SecondWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 843, 21))
@@ -45,12 +47,19 @@ class Ui_SecondWindow(object):
 
         self.retranslateUi(SecondWindow)
         QtCore.QMetaObject.connectSlotsByName(SecondWindow)
-
+        
+        
+        
     def retranslateUi(self, SecondWindow):
         _translate = QtCore.QCoreApplication.translate
         SecondWindow.setWindowTitle(_translate("SecondWindow", "MusiXOXO"))
-        self.Lista.setText(_translate("SecondWindow", "Output"))
-
+        self.Lista.setText(_translate("SecondWindow", ""))
+        saved_file = open("Savefile.txt", "r")
+        for line in saved_file:
+            saved_line = saved_file.read()
+        self.Lista.setText(saved_line)
+        saved_file.close()
+        
 
 if __name__ == "__main__":
     import sys
