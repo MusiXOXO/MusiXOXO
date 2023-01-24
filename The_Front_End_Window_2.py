@@ -16,6 +16,7 @@ class Ui_SecondWindow(object):
         SecondWindow.setObjectName("SecondWindow")
         SecondWindow.resize(843, 600)
         SecondWindow.setStyleSheet("QMainWindow {background-image: url(app_background)}")
+        MusiXOXO.setWindowIcon(QtGui.QIcon('icon.png'))
         self.centralwidget = QtWidgets.QWidget(SecondWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.Lista = QtWidgets.QTextEdit(self.centralwidget)
