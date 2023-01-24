@@ -18,7 +18,7 @@ class Ui_SecondWindow(object):
         SecondWindow.setStyleSheet("QMainWindow {background-image: url(app_background)}")
         self.centralwidget = QtWidgets.QWidget(SecondWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.Lista = QtWidgets.QLabel(self.centralwidget)
+        self.Lista = QtWidgets.QTextEdit(self.centralwidget)
         self.Lista.setGeometry(QtCore.QRect(180, 30, 541, 421))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -34,7 +34,6 @@ class Ui_SecondWindow(object):
         self.Lista.setFrameShadow(QtWidgets.QFrame.Plain)
         self.Lista.setAlignment(QtCore.Qt.AlignCenter)
         self.Lista.setObjectName("Lista")
-        self.Lista.setWordWrap(True)
         
         SecondWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(SecondWindow)
