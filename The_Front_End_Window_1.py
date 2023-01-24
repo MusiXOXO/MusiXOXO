@@ -39,6 +39,7 @@ class Ui_MusiXOXO(object):
         MusiXOXO.setObjectName("MusiXOXO")
         MusiXOXO.resize(843, 600)
         MusiXOXO.setStyleSheet("QMainWindow {background-image: url(app_background)}")
+        MusiXOXO.setWindowIcon(QtGui.QIcon('icon.png'))
         self.centralwidget = QtWidgets.QWidget(MusiXOXO)
         self.centralwidget.setObjectName("centralwidget")
         self.Przywitanie = QtWidgets.QLabel(self.centralwidget)
