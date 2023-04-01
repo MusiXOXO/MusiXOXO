@@ -34,6 +34,7 @@ class Ui_MusiXOXO(object):
         self.openWindow()                 
         
     def setupUi(self, MusiXOXO):
+        MusiXOXO.setWindowIcon(QtGui.QIcon('icon.png'))
         MusiXOXO.setObjectName("MusiXOXO")
         MusiXOXO.setStyleSheet("QMainWindow {background-image: url(app_background)}")
         MusiXOXO.setFixedSize(850, 600)
