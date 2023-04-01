@@ -24,8 +24,6 @@ class Ui_MusiXOXO(object):
         textboxValue = str(self.textEdit.toPlainText())
         print(textboxValue)
         backend_api = EasyspotifyAPI.easy_API()
-        # print(backend_api.get_artist_song(textboxValue))
-        # backend_api.get_artist_id()
         to_print = backend_api.get_recomendation( backend_api.get_artist_id(backend_api.get_artist_song(textboxValue)), None ,10 )
         save_file = open("Savefile.txt", "w")
         for i in to_print :
@@ -36,30 +34,18 @@ class Ui_MusiXOXO(object):
         self.openWindow()                 
         
     def setupUi(self, MusiXOXO):
-        MusiXOXO.setObjectName("MusiXOXO")
-        MusiXOXO.resize(843, 600)
-        MusiXOXO.setStyleSheet("QMainWindow {background-image: url(app_background)}")
         MusiXOXO.setWindowIcon(QtGui.QIcon('icon.png'))
+        MusiXOXO.setObjectName("MusiXOXO")
+        MusiXOXO.setStyleSheet("QMainWindow {background-image: url(app_background)}")
+        MusiXOXO.setFixedSize(850, 600)
         self.centralwidget = QtWidgets.QWidget(MusiXOXO)
         self.centralwidget.setObjectName("centralwidget")
         self.Przywitanie = QtWidgets.QLabel(self.centralwidget)
-        self.Przywitanie.setGeometry(QtCore.QRect(200, 30, 401, 91))
+        self.Przywitanie.setGeometry(QtCore.QRect(200, 30, 451, 91))
         font = QtGui.QFont()
         font.setPointSize(24)
-        self.Przywitanie.setFont(font)
-        self.Przywitanie.setAcceptDrops(False)
-        self.Przywitanie.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.Przywitanie.setAutoFillBackground(False)
-        self.Przywitanie.setStyleSheet("color: rgb(255, 255, 255);\n"
-"border-color: rgb(0, 0, 0);\n"
-"background-color: qlineargradient(spread:pad, x1:0.182, y1:0.176136, x2:0.518, y2:0.738727, stop:0 rgba(76, 0, 67, 255), stop:1 rgba(183, 0, 168, 255));")
-        self.Przywitanie.setLocale(QtCore.QLocale(QtCore.QLocale.Polish, QtCore.QLocale.Poland))
-        self.Przywitanie.setFrameShape(QtWidgets.QFrame.Box)
-        self.Przywitanie.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.Przywitanie.setAlignment(QtCore.Qt.AlignCenter)
-        self.Przywitanie.setObjectName("Przywitanie")
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(113, 210, 581, 121))
+        self.textEdit.setGeometry(QtCore.QRect(113, 210, 600, 251))
         font = QtGui.QFont()
         font.setPointSize(40)
         self.textEdit.setFont(font)
@@ -69,14 +55,8 @@ class Ui_MusiXOXO(object):
         self.textEdit.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textEdit.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textEdit.setObjectName("textEdit")      
-       # str(textboxValue)
-       # backend_api = EasyspotifyAPI.easy_API()
-
-       # backend_api.get_track_id(textboxValue)
-
-       # to_print = backend_api.get_recomendation( backend_api.get_artist_id(textboxValue), None ,10 )
         self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.printData())
-        self.pushButton.setGeometry(QtCore.QRect(340, 360, 121, 31))
+        self.pushButton.setGeometry(QtCore.QRect(340, 500, 121, 31))
         self.pushButton.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: qlineargradient(spread:pad, x1:0.182, y1:0.176136, x2:0.518, y2:0.738727, stop:0 rgba(76, 0, 67, 255), stop:1 rgba(183, 0, 168, 255));\n"
 "border-color: rgb(0, 0, 0);")
@@ -96,8 +76,7 @@ class Ui_MusiXOXO(object):
     def retranslateUi(self, MusiXOXO):
         _translate = QtCore.QCoreApplication.translate
         MusiXOXO.setWindowTitle(_translate("MusiXOXO", "MusiXOXO"))
-        self.Przywitanie.setText(_translate("MusiXOXO", "Welcome to MusiXOXO"))
-        self.textEdit.setPlaceholderText(_translate("MusiXOXO", "Insert: Artist - Track"))
+        self.textEdit.setPlaceholderText(_translate("MusiXOXO", "Insert: Artist - Track or Artist"))
         self.pushButton.setText(_translate("MusiXOXO", "Szukaj"))
 
 
